@@ -42,9 +42,12 @@ if __name__ == '__main__':
 		workdir = sys.argv[1]
 	print(workdir)
 	config = getConfig(workdir, NS={'workdir':workdir, 'ProgramPath':p})
-	logger = create_logger(config.logger.name or 'gadget',
+	if config.logger:
+		logger = create_logger(config.logger.name or 'gadget',
 							levelname=config.logger.levelname or 'debug',
 							file=config.logger.logfile or None)
+	else:
+		logger = create_logger('gadget', levelname='debug')
 	rf = RegisterFunction()
 	rf.register('makeThumb',thumb)
 	rf.register('idFileDownload',idFileDownload)

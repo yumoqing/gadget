@@ -1,4 +1,9 @@
 ahserver
 sqlor
 apppublic
-
+aiohttp
+aiohttp-auth-autz
+openpyxl
+aiofile
+aiohttp_session
+rsa
