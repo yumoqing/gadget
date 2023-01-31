@@ -7,3 +7,4 @@ openpyxl
 aiofile
 aiohttp_session
 rsa
+cryptography
