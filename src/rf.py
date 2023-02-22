@@ -4,7 +4,7 @@ from ahserver.filedownload import file_download
 
 async def getPublicKey(*args, **kw):
 	config = getConfig()
-	request = options.request
+	request = kw.get('request')
 	pf = config.website.rsakey.publickey
 	return await file_download(request,pf)
 

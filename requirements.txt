@@ -4,7 +4,7 @@ apppublic
 aiohttp
 aiohttp-auth-autz
 openpyxl
-aiofile
+aiofiles
 aiohttp_session
 rsa
 cryptography
