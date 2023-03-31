@@ -41,5 +41,5 @@ the test folder contains everything need for a base test.
 
 please to go test folder and run
 ```
-python ../src/main.py
+python ../src/gadget.py
 ```
