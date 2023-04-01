@@ -18,23 +18,6 @@ from rf import getPublicKey, getI18nMapping
 from loadplugins import load_plugins
 from version import __version__
 
-def encodeFilepath(id,event,d):
-	if d is None:
-		return d
-
-	if type(d) == type([]):
-		return ArrayEncodeFilepath(d)
-
-	d['rows'] = ArrayEncodeFilepath(d['rows'])
-	return d
-	
-def ArrayEncodeFilepath(d):
-	ret = []
-	for r in d:
-		r['name'] = path_encode(r['name'])
-		ret.append(r)
-	return ret
-
 if __name__ == '__main__':
 	p = ProgramPath()
 	workdir = os.getcwd()
