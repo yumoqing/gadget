@@ -1,0 +1,11 @@
+dataui
+ahserver
+sqlor
+apppublic
+aiohttp
+aiohttp-auth-autz
+openpyxl
+aiofiles
+aiohttp_session
+rsa
+cryptography

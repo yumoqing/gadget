@@ -1,5 +1,6 @@
 import os
 import sys
+from dataui.crud_parser import BricksCRUDProcessor
 from ahserver.configuredServer import ConfiguredServer
 
 from appPublic.registerfunction import RegisterFunction
@@ -17,23 +18,6 @@ from rf import getPublicKey, getI18nMapping
 from loadplugins import load_plugins
 from version import __version__
 
-def encodeFilepath(id,event,d):
-	if d is None:
-		return d
-
-	if type(d) == type([]):
-		return ArrayEncodeFilepath(d)
-
-	d['rows'] = ArrayEncodeFilepath(d['rows'])
-	return d
-	
-def ArrayEncodeFilepath(d):
-	ret = []
-	for r in d:
-		r['name'] = path_encode(r['name'])
-		ret.append(r)
-	return ret
-
 if __name__ == '__main__':
 	p = ProgramPath()
 	workdir = os.getcwd()
@@ -42,9 +26,12 @@ if __name__ == '__main__':
 		workdir = sys.argv[1]
 	print(workdir)
 	config = getConfig(workdir, NS={'workdir':workdir, 'ProgramPath':p})
-	logger = create_logger(config.logger.name or 'gadget',
+	if config.logger:
+		logger = create_logger(config.logger.name or 'gadget',
 							levelname=config.logger.levelname or 'debug',
 							file=config.logger.logfile or None)
+	else:
+		logger = create_logger('gadget', levelname='debug')
 	rf = RegisterFunction()
 	rf.register('makeThumb',thumb)
 	rf.register('idFileDownload',idFileDownload)

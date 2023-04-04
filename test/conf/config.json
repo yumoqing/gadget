@@ -4,11 +4,6 @@
 		"levelname":"debug",
 		"logfile":"$[workdir]$/logs/gadget.log"
 	},
-	"users":{
-		"ymq":"Ymq123",
-		"yjn":"Yjn123",
-		"kww":"Kww123"
-	},
 	"filesroot":"$[workdir]$/files",
 	"website":{
 		"paths":[
@@ -26,27 +21,6 @@
 			"index.tmpl",
 			"index.dspy",
 			"index.md"
-		],
-		"startswiths":[
-			{
-				"leading":"/public/publickey",
-				"registerfunction":"getPublicKey"
-			},
-			{
-				"leading":"/public/i18n",
-				"registerfunction":"getI18nMapping"
-			},
-			{
-				"leading":"/idfile",
-				"registerfunction":"idFileDownload"
-			},
-			{
-				"leading":"/thumb",
-				"registerfunction":"makeThumb",
-				"width":512,
-				"quality":50,
-				"keep_ratio":1
-			}
 		],
 		"processors":[
 			[".proxy","proxy"],
