@@ -1,6 +1,10 @@
 # gadget
 a light wight web server base on aiohttp
 
+## Documentation
+* 中文文档请看[这里](docs/cn/index.md)
+* English documents is under writing
+
 ## Dependent
 * [ahserver](https://github.com/yumoqing/ahserver)
 * [sqlor](https://github.com/yumoqing/sqlor) if you want to use database
