@@ -9,7 +9,10 @@ a = Analysis(
     pathex=[],
     binaries=[],
     datas=[],
-    hiddenimports=[],
+    hiddenimports=[
+		"aiopg",
+		"aiomysql"
+	],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
