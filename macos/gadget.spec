@@ -1,5 +1,7 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+import dataui
+duipath = os.path.dirname(dataui.__file__)
 
 block_cipher = None
 
@@ -7,7 +9,9 @@ block_cipher = None
 a = Analysis(['../src/gadget.py'],
              pathex=['/Volumes/home/ymq/pydev/github/gadget/src'],
              binaries=[],
-             datas=[],
+             datas=[
+				(f'{duipath}/tmpl/bricks/*.*', 'dataui/tmpl/bricks')
+			 ],
              hiddenimports=[
 				'sqlite3',
 				'aiopg',
