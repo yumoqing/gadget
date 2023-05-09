@@ -15,7 +15,8 @@ from ahserver.filedownload import file_download
 from id2file import getFilenameFromId
 
 async def idFileDownload(*args, **kw):
-	id = args[0]
+	print(f'idFileDownload(): {args=}, {kw=}')
+	id = kw.get('id', None)
 	fname = await getFilenameFromId(id)
 	request = kw.get('request')
 	return await file_download(request,fname)
