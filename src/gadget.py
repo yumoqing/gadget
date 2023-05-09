@@ -12,7 +12,7 @@ from appPublic.i18n import getI18N
 
 from ahserver.filedownload import path_encode
 from imgThumb import thumb
-from idFile import idFileDownload
+from idfile import idFileDownload
 from myauth import MyAuthAPI
 from rf import getPublicKey, getI18nMapping
 from loadplugins import load_plugins
