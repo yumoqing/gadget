@@ -17,7 +17,12 @@ from myauth import MyAuthAPI
 from rf import getPublicKey, getI18nMapping
 from loadplugins import load_plugins
 from version import __version__
-
+workdir = None
+def running():
+	if not os.path.exists(os.path.join(workdir, 'exit.log')):
+		return True
+	return False
+	
 if __name__ == '__main__':
 	p = ProgramPath()
 	workdir = os.getcwd()
@@ -43,4 +48,4 @@ if __name__ == '__main__':
 	load_plugins(workdir)
 	logger.info(f'gadget version={__version__}')
 	logger.debug(f'debug mode show ?')
-	server.run()
+	server.run(cond_func=running)
