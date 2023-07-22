@@ -1,0 +1,15 @@
+[Unit]
+Description=Gadget Webserver base on aiothhp
+After=network.target mariadb.service
+
+[Service]
+# EnvironmentFile=-/etc/default/gadget
+ExecStart=/d/gadget/bin/gadget /d/gadget
+ExecStop=/usr/bin/killall gadget
+KillMode=process
+RuntimeDirectory=/d/gadget
+RuntimeDirectoryMode=0755
+
+[Install]
+WantedBy=multi-user.target
+Alias=gadget.service
