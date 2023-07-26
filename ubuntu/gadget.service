@@ -4,7 +4,7 @@ After=network.target mariadb.service
 
 [Service]
 # EnvironmentFile=-/etc/default/gadget
-ExecStart=/d/gadget/bin/gadget /d/gadget
+ExecStart=/d/gadget/bin/start.sh
 ExecStop=/usr/bin/killall gadget
 KillMode=process
 RuntimeDirectory=/d/gadget
