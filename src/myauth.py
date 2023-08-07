@@ -4,18 +4,10 @@ from appPublic.registerfunction import getRegisterFunctionByName
 
 class MyAuthAPI(AuthAPI):
 	async def needAuth(self,path):
-		config = getConfig()
-		if not config.website.authpaths:
-			return False
-		for p in config.website.authpaths:
-			if path.startswith(p):
-				if not config.website.whitelist:
-					return True
-				for p1 in config.website.whitelist:
-					if path.startswith(p1):
-						return False
-				return True
-		return False
+		return True
+
+	async def checkUserPermission(self, user, path):
+		return True
 
 	async def checkUserPassword(self,user_id,password):
 		config = getConfig()
