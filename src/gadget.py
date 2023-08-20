@@ -40,7 +40,7 @@ if __name__ == '__main__':
 	rf.register('getI18nMapping', getI18nMapping)
 
 	i18n = getI18N(path=workdir)
-	server = ConfiguredServer(auth_klass=MyAuthAPI)
+	server = ConfiguredServer(auth_klass=MyAuthAPI, workdir=workdir)
 	load_plugins(workdir)
 	logger.info(f'gadget version={__version__}')
 	logger.debug(f'debug mode show ?')
