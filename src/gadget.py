@@ -1,5 +1,6 @@
 import os
 import sys
+import argparse
 from dataui.crud_parser import BricksCRUDProcessor
 from ahserver.configuredServer import ConfiguredServer
 
@@ -17,14 +18,14 @@ from myauth import MyAuthAPI
 from rf import getPublicKey, getI18nMapping
 from loadplugins import load_plugins
 from version import __version__
-workdir = None
 	
 if __name__ == '__main__':
+	parser = argparse.ArgumentParser(prog="Gadget")
+	parser.add_argument('-w', '--workdir')
+	parser.add_argument('-p', '--port')
+	args = parser.parse_args()
+	workdir = args.workdir or os.getcwd()
 	p = ProgramPath()
-	workdir = os.getcwd()
-	if len(sys.argv) > 1:
-		print(workdir, sys.argv[1])
-		workdir = sys.argv[1]
 	print(workdir)
 	config = getConfig(workdir, NS={'workdir':workdir, 'ProgramPath':p})
 	if config.logger:
@@ -44,4 +45,6 @@ if __name__ == '__main__':
 	load_plugins(workdir)
 	logger.info(f'gadget version={__version__}')
 	logger.debug(f'debug mode show ?')
-	server.run()
+	port = args.port or config.website.port or 8080
+	port = int(port)
+	server.run(port=port)
