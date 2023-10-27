@@ -14,7 +14,7 @@ from appPublic.i18n import getI18N
 from ahserver.filedownload import path_encode
 from imgThumb import thumb
 from idfile import idFileDownload
-from myauth import MyAuthAPI
+# from myauth import MyAuthAPI
 from rf import getPublicKey, getI18nMapping
 from loadplugins import load_plugins
 from version import __version__
@@ -41,7 +41,8 @@ if __name__ == '__main__':
 	rf.register('getI18nMapping', getI18nMapping)
 
 	i18n = getI18N(path=workdir)
-	server = ConfiguredServer(auth_klass=MyAuthAPI, workdir=workdir)
+	# server = ConfiguredServer(auth_klass=MyAuthAPI, workdir=workdir)
+	server = ConfiguredServer(workdir=workdir)
 	load_plugins(workdir)
 	logger.info(f'gadget version={__version__}')
 	logger.debug(f'debug mode show ?')
